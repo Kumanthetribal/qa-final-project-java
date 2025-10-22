@@ -4,10 +4,12 @@ FROM maven:3.8.5-openjdk-17
 # Etapa 2: Directorul de lucru în container
 WORKDIR /app
 
+# Etapa 3:
+RUN mvn dependency:go-offline
 
-# Etapa 3: Copiază restul proiectului
+# Etapa 4: Copiază restul proiectului
 COPY src ./src
 
 
-# Etapa 4: Comanda de start - execută testele
+# Etapa 5: Comanda de start - execută testele
 CMD ["mvn", "test"]
