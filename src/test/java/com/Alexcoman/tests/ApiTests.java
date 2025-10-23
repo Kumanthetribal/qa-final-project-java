@@ -20,9 +20,11 @@ public class ApiTests {
     public void setup() throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
-        // Încarcă fișierul ca o resursă din classpath         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("app.yaml");
-        if (inputStream == null) {
-            throw new IOException("Nu s-a putut găsi fișierul de configurare 'app.yaml' în src/test/resources");
+        // Încarcă fișierul ca o resursă din classpath         
+        
+    InputStream inputStream = getClass().getClassLoader().getResourceAsStream("app.yaml");
+    if (inputStream == null) {
+    throw new IOException("Nu s-a putut găsi fișierul de configurare 'app.yaml' în src/test/resources");
         }
 
         JsonNode root = mapper.readTree(inputStream);
